@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="catalogo">
+    <head>
+        <meta charset="UTF-8">
+        <title>Bem-vindo</title>
+    </head>
+    <body ng-controller="FilmesController">
+        <h1>Bem vindo ao treinamento de MEAN Stack do Alura!!!</h1>
+
+        <ul ng-repeat="filme in filmes">
+            <li><a href="#" ng-click='mostraFilme(filme)'>{{filme.titulo}}</a></li>
+        </ul>
+
+        <div ng-if="filmeSelecionado">
+            <dl>
+                <dt>Titulo</dt>
+                <dt>{{filmeSelecionado.titulo}}</dt>
+
+                <dt>Diretor</dt>
+                <dt>{{filmeSelecionado.diretor}}</dt>
+
+                <dt>Ano</dt>
+                <dt>{{filmeSelecionado.ano}}</dt>
+                <a href="#" ng-click="deletaFilme(filmeSelecionado)">Deletar {{filmeSelecionado.titulo}}</a>
+                <a href="#" ng-click="editaFilme(filmeSelecionado)">Edita {{filmeSelecionado.titulo}}</a>
+            </dl>
+
+        </div>
+
+        <form ng-submit="enviaFilme()">
+            Titulo: <input ng-model="filme.titulo" />
+            Diretor: <input ng-model="filme.diretor" />
+            Ano: <input ng-model="filme.ano" />
+            <input type="submit" />
+        </form>
+
+        <script src="/javascript/angular.js"></script>
+        <script src="/javascript/main.js"></script>
+        <script src="/javascript/FilmesController.js"></script>
+    </body>
+</html>
